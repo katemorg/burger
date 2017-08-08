@@ -1,10 +1,29 @@
-Inside the burgers_controller.js file, import the following:
+var express = require('express');
+var router = express.Router();
+var burger = require('../models/burger.js');
 
+// gets all the burgers, passes in all the burgers for handlebars
+//renders index file
+router.get('/', function(req, res) {
+	burger.selectAll(function(data) {
+		var burgersObj = {burgers: data};
+		res.render('', burgersObj);
+	});
+});
 
+// adds new burger, displays, redirects to index route
+router.post('/burgers/insertOne', function(req, res) {
+	burger.insertOne(['burger_name', 'devoured'], [req.body.name, false], function() {
+		res.redirect('/');
+	});
+});
 
-Express
-burger.js
+// updates status of burger, redirects to index route
+router.put('/burgers/updateOne/:id', function(req, res) {
+	var condition = 'id = ' + req.params.id;
+	burger.updateOne({devoured: req.body.devoured}, condition, function() {
+		res.redirect('/');
+	});
+});
 
-
-
-Create the router for the app, and export the router at the end of your file.
+module.exports = router;

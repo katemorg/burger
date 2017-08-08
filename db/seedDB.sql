@@ -2,11 +2,11 @@ USE burgers_db;
 
 INSERT INTO burgers (burger_name) 
 VALUES 
-('burger name 1'), 
-('burger name 2'), 
-('burger name 3'),
-('burger name 4'), 
-('burger name 5'), 
-('burger name 6'), 
-('burger name 7'), 
-('burger name 8');
+('Bohemian Radishy Burger'), 
+('I Fought the Slaw Burger (And the Slaw Won)'), 
+('Kales From the Crypt Burger'),
+('Hummus a Tune Burger'), 
+('Chard to a Crisp Burger'), 
+('Onion Ring Around the Rosemary Burger'), 
+('Beets of Burden Burger'), 
+("The Cauliflower's Cumin From Inside the House Burger");
